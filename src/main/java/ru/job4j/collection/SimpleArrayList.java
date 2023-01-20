@@ -12,11 +12,10 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     }
 
     private void grow() {
-        if (size == container.length) {
-            container = Arrays.copyOf(container, container.length * 2);
-        }
         if (container.length == 0) {
             container = (T[]) new Object[1];
+        } else if (size == container.length) {
+            container = Arrays.copyOf(container, container.length * 2);
         }
     }
 
@@ -29,10 +28,9 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public T set(int index, T newValue) {
-        Objects.checkIndex(index, size);
-        T oldValue = container[index];
+        T rsl = get(index);
         container[index] = newValue;
-        return oldValue;
+        return rsl;
     }
 
     @Override
