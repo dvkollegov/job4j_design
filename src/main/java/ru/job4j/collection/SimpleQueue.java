@@ -9,9 +9,10 @@ public class SimpleQueue<T> {
     private int countOut = 0;
 
     public T poll() {
-        if (countIn == 0) {
+        if (countIn == 0 && countOut == 0) {
             throw new NoSuchElementException();
-        } else if (countOut == 0) {
+        }
+        if (countOut == 0) {
             for (int i = 0; i <= countIn; i++) {
                 out.push(in.pop());
                 countIn--;
