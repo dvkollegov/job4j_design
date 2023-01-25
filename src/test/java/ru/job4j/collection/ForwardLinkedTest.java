@@ -20,14 +20,6 @@ class ForwardLinkedTest {
     }
 
     @Test
-    void checkIteratorSimple() {
-        assertThat(list).hasSize(2);
-        list.add(3);
-        list.add(4);
-        assertThat(list).hasSize(4);
-    }
-
-    @Test
     void checkAdd() {
         assertThat(list).containsExactly(1, 2);
         list.add(3);
