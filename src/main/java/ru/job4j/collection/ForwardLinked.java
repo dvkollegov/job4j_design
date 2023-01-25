@@ -55,7 +55,7 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public boolean revert() {
-        boolean rsl = size != 0 && size != 1;
+        boolean rsl = size > 1;
         if (rsl) {
             Node<T> previous = null;
             Node<T> current = head;
