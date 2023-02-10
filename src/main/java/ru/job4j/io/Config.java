@@ -13,34 +13,27 @@ public class Config {
         this.path = path;
     }
 
+    private boolean checkLine(String line) {
+        int count = line.length() - line.replace("=", "").length();
+        return line.startsWith("=") || !line.contains("=") || (count == 1 && line.endsWith("="));
+    }
+
+    private boolean checkLineIsEmptyAndComment(String line) {
+        return line.isEmpty() || line.startsWith("#");
+    }
+
     public void load() {
         try (BufferedReader in = new BufferedReader(new FileReader(this.path))) {
-            List<String> lines = in.lines().toList();
-            for (String line : lines) {
-                if (line.startsWith("=")) {
+            for (String line : in.lines().toList()) {
+                line.trim();
+                if (checkLineIsEmptyAndComment(line)) {
+                    continue;
+                }
+                if (checkLine(line)) {
                     throw new IllegalArgumentException();
                 }
-                String[] arr = line.split("=");
-                if (!(line.isEmpty() || line.contains("#")) && (arr.length == 1 || !line.contains("="))) {
-                    throw new IllegalArgumentException();
-                }
-                if (arr.length == 2) {
-                    values.put(arr[0], arr[1]);
-                }
-                if (arr.length > 2) {
-                    StringJoiner joiner = new StringJoiner("=");
-                    for (int i = 1; i < arr.length; i++) {
-                        joiner.add(arr[i]);
-                    }
-                    values.put(arr[0], joiner.toString());
-                }
-                if (arr.length > 2 && line.endsWith("=")) {
-                    StringBuilder builder = new StringBuilder();
-                    for (int i = 1; i < arr.length; i++) {
-                        builder.append(arr[i]).append("=");
-                    }
-                    values.put(arr[0], builder.toString());
-                }
+                String[] arr = line.split("=", 2);
+                values.put(arr[0], arr[1]);
             }
         } catch (IOException e) {
             e.printStackTrace();
