@@ -7,15 +7,10 @@ public class ArgsName {
     private final Map<String, String> values = new HashMap<>();
 
     public String get(String key) {
-        String rsl = "";
-        for (String s : values.keySet()) {
-            if (!s.equals(key)) {
-                throw new IllegalArgumentException("Not valid key");
-            }
-            rsl = values.get(key);
-            break;
+        if (!values.containsKey(key)) {
+            throw new IllegalArgumentException("Not valid key");
         }
-        return rsl;
+        return values.get(key);
     }
 
     private void checkLine(String arg) {
@@ -31,8 +26,7 @@ public class ArgsName {
         if (arg.startsWith("-=")) {
             throw new IllegalArgumentException("String must not start with characters \"-=\"");
         }
-        int count = arg.length() - arg.replace("=", "").length();
-        if ((count == 1 && arg.endsWith("="))) {
+        if (arg.indexOf("=") == arg.length() - 1) {
             throw new IllegalArgumentException("String must contain the value");
         }
     }
