@@ -24,10 +24,11 @@ public class Search {
     }
 
     public static void checkArgs(String[] args) {
-        if (!args[0].contains(":")) {
+        Path tempDirectory = Paths.get(args[0]);
+        if (!Files.isDirectory(tempDirectory)) {
             throw new IllegalArgumentException("Root folder address is not set correctly. Usage ROOT_FOLDER.");
         }
-        if (!args[1].startsWith(".")) {
+        if (!args[1].startsWith(".") && args[1].length() > 1) {
             throw new IllegalArgumentException("Root folder the wrong file extension was passed. Usage ROOT_FOLDER.");
         }
     }
