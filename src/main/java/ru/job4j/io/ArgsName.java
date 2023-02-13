@@ -15,7 +15,8 @@ public class ArgsName {
 
     private boolean checkLine(String arg) {
         int count = arg.length() - arg.replace("=", "").length();
-        return arg.startsWith("=") || !arg.contains("=") || (count == 1 && arg.endsWith("=")) || !arg.startsWith("-");
+        return arg.startsWith("=") || !arg.contains("=") || (count == 1 && arg.endsWith("="))
+                || !arg.startsWith("-") || arg.substring(1).startsWith("=");
     }
 
     private void parse(String[] args) {

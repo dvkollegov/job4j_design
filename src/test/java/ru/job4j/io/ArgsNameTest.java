@@ -58,4 +58,10 @@ class ArgsNameTest {
         assertThatThrownBy(() -> ArgsName.of(new String[]{"Xmx=512"}))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void whenStartSymbolKeyNotExist() {
+        assertThatThrownBy(() -> ArgsName.of(new String[]{"-=512"}))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
