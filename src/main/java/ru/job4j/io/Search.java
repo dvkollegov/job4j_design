@@ -28,7 +28,7 @@ public class Search {
         if (!Files.isDirectory(tempDirectory)) {
             throw new IllegalArgumentException("Root folder address is not set correctly. Usage ROOT_FOLDER.");
         }
-        if (!args[1].startsWith(".") && args[1].length() > 1) {
+        if (!args[1].startsWith(".") || args[1].length() < 2) {
             throw new IllegalArgumentException("Root folder the wrong file extension was passed. Usage ROOT_FOLDER.");
         }
     }
