@@ -33,11 +33,7 @@ public class Zip {
         }
     }
 
-    private static void checkZipArgs(String[] args) {
-        if (args.length != 3) {
-            throw new IllegalArgumentException("Root folder has a value not equal to three. Usage ROOT_FOLDER.");
-        }
-        ArgsName argsName = ArgsName.of(args);
+    private static void checkZipArgs(ArgsName argsName) {
         if (!Files.isDirectory(Paths.get(argsName.get("d")))) {
             throw new IllegalArgumentException("Root folder address is not set correctly. Usage ROOT_FOLDER.");
         }
@@ -50,8 +46,11 @@ public class Zip {
     }
 
     public static void main(String[] args) throws IOException {
-        checkZipArgs(args);
+        if (args.length != 3) {
+            throw new IllegalArgumentException("Root folder has a value not equal to three. Usage ROOT_FOLDER.");
+        }
         ArgsName arg = ArgsName.of(args);
+        checkZipArgs(arg);
         Zip zip = new Zip();
         List<Path> list = Search.search(Paths.get(arg.get("d")),
                 prd -> !prd.toFile().getName().endsWith(arg.get("e")));
