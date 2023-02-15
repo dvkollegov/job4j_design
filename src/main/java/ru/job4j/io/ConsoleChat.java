@@ -24,9 +24,9 @@ public class ConsoleChat {
         Scanner scanner = new Scanner(System.in);
         String question = scanner.nextLine();
         log.add(question);
-        while (!question.equals(OUT)) {
-            if (question.equals(STOP)) {
-                while (!question.equals(CONTINUE)) {
+        while (!OUT.equals(question)) {
+            if (STOP.equals(question)) {
+                while (!CONTINUE.equals(question)) {
                     question = scanner.nextLine();
                     log.add(question);
                 }
