@@ -9,6 +9,14 @@ public class Car {
         this.number = number;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return "Car{"

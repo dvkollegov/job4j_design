@@ -17,6 +17,26 @@ public class Worker {
         this.skill = skill;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public boolean isHealth() {
+        return health;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public String[] getSkill() {
+        return skill;
+    }
+
     @Override
     public String toString() {
         return "Worker{"
