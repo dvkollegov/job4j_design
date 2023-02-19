@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worker name="John Smith" age="37" health="true">
+    <car brand="BMW" number="123"/>
+    <skilles>
+        <skill>driver</skill>>
+        <skill>carpenter</skill>>
+        <skill>plumber</skill>>
+    </skilles>>
+</worker>
