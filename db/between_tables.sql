@@ -10,7 +10,7 @@ create table car(
     id serial primary key,
     name_car varchar(255),
     color varchar(255),
-    number_car_id int
+    number_car_id int unique
 );
 
 create table number_car(
