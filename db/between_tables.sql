@@ -29,3 +29,9 @@ create table bus(
     name_bus varchar(255),
     number_bus varchar(255)
 );
+
+create table drivers_bus(
+    id serial primary key,
+    driver_id int,
+    bus_id int
+);
