@@ -27,14 +27,14 @@ create table driver(
 create table bus(
     id serial primary key,
     name_bus varchar(255),
-    number_bus varchar(255)
+    number_bus varchar(255),
+    number_bus_id int unique
 );
 
 create table drivers_bus(
     id serial primary key,
     driver_id int,
-    bus_id int,
-    number_bus_id int unique
+    bus_id int
 );
 
 create table number_bus(
