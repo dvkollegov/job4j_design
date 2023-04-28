@@ -3,14 +3,14 @@ create table people(
     name_people varchar(255),
     age int,
     sex varchar(255),
-    car_id int
+    car_id int references car(id)
 );
 
 create table car(
     id serial primary key,
     name_car varchar(255),
     color varchar(255),
-    number_car_id int unique
+    number_car_id int references number_car(id) unique
 );
 
 create table number_car(
@@ -24,17 +24,17 @@ create table driver(
     experience int
 );
 
+create table drivers_bus(
+    id serial primary key,
+    driver_id int references driver(id),
+    bus_id int references bus(id)
+);
+
 create table bus(
     id serial primary key,
     name_bus varchar(255),
     number_bus varchar(255),
-    number_bus_id int unique
-);
-
-create table drivers_bus(
-    id serial primary key,
-    driver_id int,
-    bus_id int
+    number_bus_id int references number_bus(id) unique
 );
 
 create table number_bus(
