@@ -9,7 +9,7 @@ create table people(
 create table car(
     id serial primary key,
     name_car varchar(255),
-    number varchar(255),
+    color varchar(255),
     number_car_id int
 );
 
