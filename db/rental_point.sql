@@ -25,12 +25,12 @@ insert into tool (name, cost_per_day, date_start, client_id) values ('grinding m
 
 select * from tool join client on tool.client_id = client.id;
 
-select tl.name as "Инструмент", tl.cost_per_day as "Оплата за день", cl.name as "Имя клиента"
+select tl.name as "Tool", tl.cost_per_day as "Payment per day", cl.name as "Client's name"
 from tool tl join client cl on tl.client_id = cl.id;
 
-select tl.name as "Инструмент", tl.cost_per_day as "Оплата за день", tl.client_id as "ID клиента", cl.name as "Имя клиента"
+select tl.name as "Tool", tl.cost_per_day as "Payment per day", tl.client_id as "Client ID", cl.name as "Client's name"
 from tool tl join client cl on tl.client_id = cl.id;
 
-select tl.name as "Инструмент", tl.cost_per_day as "Оплата за день", tl.date_start as "Дата начала аренды",
-tl.client_id as "ID клиента", cl.name as "Имя клиента", cl.telephone as "Телефон клиента"
+select tl.name as "Tool", tl.cost_per_day as "Payment per day", tl.date_start as "Rental start date",
+tl.client_id as "Client ID", cl.name as "Client's name", cl.telephone as "Customer's phone number"
 from tool tl join client cl on tl.client_id = cl.id;
