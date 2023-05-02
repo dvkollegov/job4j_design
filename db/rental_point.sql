@@ -9,7 +9,7 @@ create table tool
 (
     id   serial primary key,
     name text,
-    cost_per_day int,
+    cost_per_day float,
     date_start timestamp,
     client_id int references client(id)
 );
