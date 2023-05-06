@@ -18,6 +18,7 @@ insert into product(name, type_id, expired_date, price) values ('Yogurt', 2, '20
 
 insert into product(name, type_id, expired_date, price) values ('Beef', 3, '2023-05-10', 480.00);
 insert into product(name, type_id, expired_date, price) values ('Pork', 3, '2023-05-15', 360.00);
+insert into product(name, type_id, expired_date, price) values ('Marbled beef', 3, '2023-05-15', 1050.00);
 
 insert into product(name, type_id, expired_date, price) values ('Loaf', 4, '2023-05-03', 25.00);
 insert into product(name, type_id, expired_date, price) values ('Black bread', 4, '2023-05-03', 32.00);

@@ -10,8 +10,9 @@ where name ilike '%ice cream%';
 select name
 from product where expired_date < current_date;
 
-select max(price) as max_price
-from product;
+select name, price
+from product
+where price = (select max(price) from product);
 
 select t.name as name_type, count(t.name)
 from product p join type t on p.type_id = t.id
