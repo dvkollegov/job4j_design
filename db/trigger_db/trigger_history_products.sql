@@ -1,8 +1,3 @@
-create trigger history_trigger
-    after insert on products
-    for each row
-execute procedure history();
-
 create or replace function history()
     returns trigger as
 $$
@@ -13,3 +8,8 @@ BEGIN
 END;
 $$
     language 'plpgsql';
+
+create trigger history_trigger
+    after insert on products
+    for each row
+execute procedure history();
